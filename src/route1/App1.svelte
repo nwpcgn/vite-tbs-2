@@ -1,5 +1,5 @@
 <script>
-  import { onMount } from "svelte";
+  // import { onMount } from "svelte";
   import TopBar from "./_comp/TopBar.svelte";
   import SideBar from "./_comp/SideBar.svelte";
   import Router, { location } from "svelte-spa-router";
@@ -15,10 +15,10 @@
   const toggle = () => {
     open = !open;
   };
-  console.log(`${label} init!`);
-  onMount(() => {
-    console.log(`${label} mounted!`);
-  });
+  // console.log(`${label} init!`);
+  // onMount(() => {
+  //   console.log(`${label} mounted!`);
+  // });
 </script>
 
 <TopBar label="Final-Space-Api" {toggle} />

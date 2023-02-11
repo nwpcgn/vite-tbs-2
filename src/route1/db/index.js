@@ -1,25 +1,12 @@
 // @index(['./*.svelte', './list/*.svelte'], (f, _, e) => `export { default as ${_.pascalCase(f.name)} } from '${f.path}${f.ext}';`)
-export {
-  default as Character
-}
-from './Character.svelte';
-export {
-  default as Episode
-}
-from './Episode.svelte';
-// export { default as JsonPanel } from './JsonPanel.svelte';
-export {
-  default as Location
-}
-from './Location.svelte';
-export {
-  default as Quote
-}
-from './Quote.svelte';
-export {
-  default as View
-}
-from './View.svelte';
+export { default as ApiFetcher } from './ApiFetcher.svelte';
+export { default as Character } from './Character.svelte';
+export { default as Episode } from './Episode.svelte';
+export { default as JsonPanel } from './JsonPanel.svelte';
+export { default as Location } from './Location.svelte';
+export { default as Quote } from './Quote.svelte';
+export { default as RonSwanson } from './RonSwanson.svelte';
+export { default as View } from './View.svelte';
 // @endindex
 export const apiData = [{
     id: 0,

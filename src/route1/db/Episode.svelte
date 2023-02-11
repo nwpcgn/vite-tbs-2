@@ -24,7 +24,7 @@
       <span class="text-muted" style="opacity: 0.5;"><Fa icon={faTv} fw /></span>
       <span class="text-primary">{d.name}</span>
     </h5>
-    <span class="fs-6 badge rounded-pill text-bg-danger">
+    <span class="badge rounded-pill text-bg-info">
       <span class="">{d.id}</span>
     </span>
   </header>

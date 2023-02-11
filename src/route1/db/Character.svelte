@@ -1,10 +1,9 @@
 <script>
   import JsonPanel from './JsonPanel.svelte';
-
   // import { createEventDispatcher } from "svelte";
   // const dispatch = createEventDispatcher();
   import Fa from 'svelte-fa/src/fa.svelte'
-  import { faThermometerHalf, faUserCog, faTint, faUserFriends, faUsers, faUserTag, faGlobe, faNeuter } from '@fortawesome/free-solid-svg-icons';
+  import { faThermometerHalf, faUserCog, faTint, faUserFriends, faUsers, faUserTag, faNeuter, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
   import Collapse from "../../lib/bs/Collapse.svelte";
   export let detail = false;
   export let d = {};
@@ -24,7 +23,7 @@
   </header>
   <article class="d-flex flex-column ps-0">
     <span class="text-secondary" title="Species"><Fa icon={faUserTag} fw /> {d.species}</span>
-    <span class="text-secondary" title="Origin"><Fa icon={faGlobe} fw /> {d.origin}</span>
+    <span class="text-secondary" title="Origin"><Fa icon={faMapMarkerAlt} fw /> {d.origin}</span>
   </article> 
 {:else}
   <!-- Details Item { id, name, status, species, gender, hair, alias, origin, abilities, img_url } -->
@@ -35,7 +34,7 @@
         <span class="text-primary">{d.name}</span>
       </h1>
       <span class="text-secondary fs-5" title="Species"><Fa icon={faUserTag} fw /> {d.species}</span>
-      <span class="text-secondary fs-5" title="Origin"><Fa icon={faGlobe} fw /> {d.origin}</span>
+      <span class="text-secondary fs-5" title="Origin"><Fa icon={faMapMarkerAlt} fw /> {d.origin}</span>
       <span class="text-secondary fs-5" title="Gender"><Fa icon={faNeuter} fw /> {d.gender}</span>
       <span class="text-secondary fs-5" title="Hair Color"><Fa icon={faTint} fw /> {d.hair}</span>
       <span class="text-secondary fs-5" title="Status"><Fa icon={faThermometerHalf} fw /> {d.status}</span>
@@ -94,8 +93,8 @@
   <JsonPanel d={d} />
 {/if}
 {/if}
-
-<!-- 
-  { id, name, status, species, gender, hair, alias, origin, abilities, img_url }
-  s
--->
+<style>
+  figure {
+    max-width: 40%;
+  }
+</style>

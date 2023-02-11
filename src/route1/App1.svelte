@@ -9,7 +9,8 @@
   let setPage = () => console.log("Set Page Function disabled");
   const navData = [
     { path: "/", name: "Start" },
-    { path: "/settings", name: "Settings" },
+    { path: "/hsp/", name: "Hoerspiele" },
+    { path: "/settings/", name: "Settings" },
   ];
   let open;
   const toggle = () => {

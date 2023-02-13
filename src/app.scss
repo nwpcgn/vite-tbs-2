@@ -6,13 +6,12 @@ body {
   position: relative;
   width: 100%;
   min-height: 100vh;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 #app {
-  --appbar-hight: 56px;
   position: absolute;
   top: 0;
   left: 0;

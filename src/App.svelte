@@ -6,7 +6,10 @@
   import Fa from "svelte-fa/src/fa.svelte";
   import {faCog, faMicrophone} from "@fortawesome/free-solid-svg-icons";
   import url from './utils/url';
-  const title = "Herr-Der-Ringe-Api";
+  const title = "HdR-Hoerspiele";
+  const handleStart = () => {
+   // if ($url.hash === '' || $url.hash === '#/') slide1.scrollIntoView({behavior: 'smooth', block: 'center'});
+  };
   $: console.log($url)
 </script>
 
@@ -15,9 +18,9 @@
 </svelte:head>
 
 
-<nav class="navbar navbar-light navbar-expand sticky-top shadow">
+<nav class="navbar navbar-dark bg-dark navbar-expand sticky-top shadow">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#/">
+    <a class="navbar-brand" href="#/" on:click={handleStart}>
       {title}
     </a>
       <div id="navcol-1" class="collapse navbar-collapse">

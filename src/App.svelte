@@ -20,8 +20,7 @@
     <a class="navbar-brand" href="#/">
       {title}
     </a>
-    <!-- <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button> -->
-       <div id="navcol-1" class="collapse navbar-collapse">
+      <div id="navcol-1" class="collapse navbar-collapse">
           <ul class="navbar-nav ms-auto">
               <li class="nav-item">
                 <a class="nav-link" class:active={$url.hash.includes('#/hsp')} href="#/hsp/">

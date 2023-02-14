@@ -28,14 +28,14 @@
   {#if $_user}
     <slot><!-- optional fallback --></slot>
   {:else}
-    <section>
+    <main>
       <SignIn />
-    </section>
+    </main>
   {/if}
 {/if}
 
 <style>
-  section {
+  main {
     flex: 1;
     display: flex;
     flex-direction: column;

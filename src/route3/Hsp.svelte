@@ -1,6 +1,6 @@
 <script>
-  import Spinner from './_components/Spinner.svelte';
   import { onMount } from 'svelte';
+  import Loader from '../lib/bs/Loader.svelte';
   import Fa from 'svelte-fa/src/fa.svelte'
   import { faComment, faBook, faMicrophone } from '@fortawesome/free-solid-svg-icons';
   let data = [];
@@ -47,7 +47,7 @@
               </div>
           </div>
           {:else}
-          <Spinner></Spinner>
+          <Loader />
         {/each}
         <!-- {b_id,buch,id,h_id,name,titel,inhalt,audio_link} -->
     </section>

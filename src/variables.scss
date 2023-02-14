@@ -7,7 +7,7 @@
 @import "bootstrap/scss/functions";
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/variables-dark";
-@import "./assets/colors";
+// @import "./assets/colors";
 $enable-caret:                true !default;
 $enable-rounded:              true !default;
 $enable-shadows:              false !default;
@@ -70,23 +70,8 @@ $theme-colors: (
   "light":      $light,
   "dark":       $dark
 );
-$primary-text:            $blue-600 !default;
-$secondary-text:          $gray-600 !default;
-$success-text:            $green-600 !default;
 $info-text:               $pink !default;
-$warning-text:            $yellow-700 !default;
-$danger-text:             $red-600 !default;
-$light-text:              $gray-600 !default;
-$dark-text:               $gray-700 !default;
 
-$primary-bg-subtle:       $blue-100 !default;
-$secondary-bg-subtle:     $gray-100 !default;
-$success-bg-subtle:       $green-100 !default;
-$info-bg-subtle:          $gray-100 !default;
-$warning-bg-subtle:       $yellow-100 !default;
-$danger-bg-subtle:        $red-100 !default;
-$light-bg-subtle:         mix($gray-100, $white) !default;
-$dark-bg-subtle:          $gray-400 !default;
 
 
 $container-max-widths: (

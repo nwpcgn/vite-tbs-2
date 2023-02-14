@@ -7,8 +7,9 @@
   import {faCog, faMicrophone} from "@fortawesome/free-solid-svg-icons";
   import url from './utils/url';
   const title = "HdR-Hoerspiele";
-  const handleStart = () => {
-   // if ($url.hash === '' || $url.hash === '#/') slide1.scrollIntoView({behavior: 'smooth', block: 'center'});
+  const checkRoute = (str = 'hsp', int = '0') => {
+    if ($url.hash.includes(str) && $url.hash.includes(int)) return true;
+    else return false;
   };
   $: console.log($url)
 </script>
@@ -20,7 +21,7 @@
 
 <nav class="navbar navbar-dark bg-dark navbar-expand sticky-top shadow">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#/" on:click={handleStart}>
+    <a class="navbar-brand" href="#/">
       {title}
     </a>
       <div id="navcol-1" class="collapse navbar-collapse">
@@ -41,7 +42,7 @@
 </nav>
 
 {#if $url.hash === '' || $url.hash === '#/'}
-  <main><Start /></main>
+  <Start />
 {:else if $url.hash.includes('#/hsp')}
   <Hsp />
 {:else if $url.hash.includes('#/settings')}

@@ -1,16 +1,17 @@
 <script>
-  import Slider from "./Slider.svelte";
-  import FlexRow from "../lib/bs/FlexRow.svelte";
   import Fa from "svelte-fa/src/fa.svelte";
   import {
     faFilm,
     faPlay,
     faCalendar,
     faMicrophone,
-    faChevronDown, 
+    faChevronDown,
     faChevronUp,
     faBookOpen,
+    faAngleDoubleUp,
   } from "@fortawesome/free-solid-svg-icons";
+  import Snap from "./_components/Snap.svelte";
+  import Snaps from "./_components/Snaps.svelte";
   const apiD = {
     hoerspiel: "Der Herr der Ringe",
     autor: "J.R.R. Tolkien ",
@@ -36,85 +37,131 @@
   };
   export let slide1, slide2, slide3;
   const changeSlide = (elem) => {
-      elem.scrollIntoView({behavior: 'smooth', block: 'center'});
+    elem.scrollIntoView({ behavior: "smooth", block: "center" });
   };
 </script>
 
-
-
-<header bind:this={slide1} class="slide-hero" style="background-image: url(./img/hdr/bg-lotr.jpg);">
- <div class="py-4 px-4">
-  <div class="d-grid gap-2">
-    <button on:click={() => changeSlide(slide2)} type="button" class="btn btn-outline-light btn-lg py-3 px-3">
-      <Fa icon={faBookOpen} fw />  Start
-    </button>
-  </div>
- </div>
-</header>
-
-<article bind:this={slide2} class="slide">
-  <div class="container-lg py-4">
-    <nav class="py-4 mb-4 text-center">
-      <button type="button" class="btn btn-light btn-lg" on:click={changeSlide(slide1)}><Fa icon={faChevronUp} /></button>
-    </nav>
-  
-    <div class="row g-2">
-      <div class="col">
-        <header class="d-flex w-100 justify-content-between align-items-start">
-          <div>
-            <h1 class="mb-1">
-              <span class="text-secondary" style="opacity: 0.5;">
-                <Fa icon={faMicrophone} fw />
-              </span>
-              <span>{apiD.hoerspiel}</span>
-            </h1>
-          </div>
-          <!-- <span class="badge text-bg-secondary">{apiD.h_id}</span> -->
-        </header>
-        <div class="px-2 text-start">
-          <h5 class="mb-1">by <em>{apiD.autor}</em></h5>
-          <p class="mb-1"><Fa icon={faFilm} fw /> {apiD.regie}</p>
-          <p class="mb-1"><Fa icon={faPlay} fw /> {apiD.produktion}</p>
-          <p class="mb-1"><Fa icon={faCalendar} fw /> {apiD.veroeffentlicht}</p>
-          <p class="mb-1">
-            <em>{apiD.info}</em>
-          </p>
-        </div>
+<Snaps>
+  <Snap bind:slide={slide1} bg="./img/hdr/bg-lotr.jpg" hero>
+    <div class="py-4 px-4">
+      <div class="d-grid gap-2">
+        <button
+          title="Scroll Down"
+          on:click={() => changeSlide(slide2)}
+          type="button"
+          class="btn btn-outline-light btn-lg py-3 px-3"
+        >
+          <Fa icon={faBookOpen} fw /> Start
+        </button>
       </div>
     </div>
+  </Snap>
 
-    <nav class="py-4 mt-4 text-center">
-      <button type="button" class="btn btn-light btn-lg" on:click={changeSlide(slide3)}><Fa icon={faChevronDown} /></button>
-    </nav>
-  
-  </div>
-</article>
-
-<article bind:this={slide3} class="slide">
-  <div class="container-lg py-4">
-    
-    <div class="row row-cols-1 row-cols-sm-3 g-2">
-      {#each apiD.books as book}
-      <div class="col">
-        <div class="card">
-          <img src="./img/hdr/lotr_b{book.id}.jpg" class="card-img-top" alt="">
-          <div class="card-body">
-            <span class="mb-1">{apiD.hoerspiel}</span>
-            <h4 class="fs-3 text-truncate">{book.buch}</h4>
-            <p class="text-muted mb-0">by {apiD.autor}</p>
-            <p class="mb-3"><small><Fa icon={faCalendar} fw /> {apiD.veroeffentlicht}</small></p>
-            <a href="#/hsp/" class="btn btn-outline-info"><Fa icon={faBookOpen} fw /> Buch {book.id}</a>
+  <Snap bind:slide={slide2} hero>
+    <svelte:fragment slot="header">
+      <button
+        title="Scroll Up"
+        class="blank"
+        type="button"
+        on:click={changeSlide(slide1)}
+      >
+        <Fa icon={faChevronUp} />
+      </button>
+    </svelte:fragment>
+    <div class="container-lg py-4">
+      <div class="row g-2">
+        <div class="col">
+          <header
+            class="d-flex w-100 justify-content-between align-items-start"
+          >
+            <div>
+              <h1 class="mb-1">
+                <span class="text-secondary" style="opacity: 0.5;">
+                  <Fa icon={faMicrophone} fw />
+                </span>
+                <span>{apiD.hoerspiel}</span>
+              </h1>
+            </div>
+            <!-- <span class="badge text-bg-secondary">{apiD.h_id}</span> -->
+          </header>
+          <div class="px-2 text-start">
+            <h5 class="mb-1">by <em>{apiD.autor}</em></h5>
+            <p class="mb-1"><Fa icon={faFilm} fw /> {apiD.regie}</p>
+            <p class="mb-1"><Fa icon={faPlay} fw /> {apiD.produktion}</p>
+            <p class="mb-1">
+              <Fa icon={faCalendar} fw />
+              {apiD.veroeffentlicht}
+            </p>
+            <p class="mb-1">
+              <em>{apiD.info}</em>
+            </p>
           </div>
         </div>
       </div>
-      {/each}
     </div>
-    <nav class="py-4 mt-4 text-center">
-      <button type="button" class="btn btn-light btn-lg" on:click={changeSlide(slide1)}><Fa icon={faChevronUp} /></button>
-    </nav>
-</article>
+    <svelte:fragment slot="footer">
+      <button
+        title="Scroll Down"
+        class="blank"
+        type="button"
+        on:click={changeSlide(slide3)}
+      >
+        <Fa icon={faChevronDown} />
+      </button>
+    </svelte:fragment>
+  </Snap>
 
-
+  <Snap bind:slide={slide3} hero>
+    <svelte:fragment slot="header">
+      <button
+        title="Scroll Up"
+        class="blank"
+        type="button"
+        on:click={changeSlide(slide2)}
+      >
+        <Fa icon={faChevronUp} />
+      </button>
+    </svelte:fragment>
+    <div class="container-lg py-4">
+      <div class="row row-cols-1 row-cols-sm-3 g-2">
+        {#each apiD.books as book}
+          <div class="col">
+            <div class="card">
+              <img
+                src="./img/hdr/lotr_b{book.id}.jpg"
+                class="card-img-top"
+                alt=""
+              />
+              <div class="card-body">
+                <span class="mb-1">{apiD.hoerspiel}</span>
+                <h4 class="fs-3 text-truncate">{book.buch}</h4>
+                <p class="text-muted mb-0">by {apiD.autor}</p>
+                <p class="mb-3">
+                  <small
+                    ><Fa icon={faCalendar} fw /> {apiD.veroeffentlicht}</small
+                  >
+                </p>
+                <a href="#/hsp/" class="btn btn-outline-info"
+                  ><Fa icon={faBookOpen} fw /> Buch {book.id}</a
+                >
+              </div>
+            </div>
+          </div>
+        {/each}
+      </div>
+    </div>
+    <svelte:fragment slot="footer">
+      <button
+        title="Scroll to the top of Page"
+        class="blank"
+        type="button"
+        on:click={changeSlide(slide1)}
+      >
+        <Fa icon={faAngleDoubleUp} />
+      </button>
+    </svelte:fragment>
+  </Snap>
+</Snaps>
 
 <style lang="scss" global>
   $hero-size: calc(100vh - 56px);
@@ -126,7 +173,6 @@
     height: 100%;
     max-height: $hero-size;
   }
-
   :global(.img-hero) {
     display: block;
     width: 100%;
@@ -134,22 +180,11 @@
     max-height: $hero-size;
     object-fit: cover;
   }
-
-  .slide-hero {
+  :global(button.blank) {
+    display: block;
+    width: 100%;
     background-color: transparent;
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    flex-direction: column;
-    min-height: $hero-size;
-    align-items: center;
-    justify-content: center;
-  }
-  .slide {
-    display: flex;
-    flex-direction: column;
-    min-height: $hero-size;
-    align-items: center;
-    justify-content: center;
+    border: 0;
+    padding: 0.5rem;
   }
 </style>

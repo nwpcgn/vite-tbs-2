@@ -1,14 +1,24 @@
 <script>
-    import DocsBs from '../lib/bs/DocsBs.md';
+  import DocsBs from "../lib/bs/DocsBs.md";
+  import Options from "./_components/Options.svelte";
+  import Router from "svelte-spa-router";
+  const prefix = "/settings";
+  const routes = {
+    "/": Options
+  };
 </script>
 
 <main>
-  <header class="mb-4 hero">
-    <img class="img-hero" src="./img/hdr/bg-lotr.jpg" alt="" />
-  </header>
-  <div class="container-lg">
-    <div class="my-2 px-2 py-2 border rounded-2">
-      <DocsBs />
-    </div>
-  </div>
+  <Router {routes} {prefix} />
 </main>
+<!-- <footer>
+  <div class="container">
+    <nav class="nav justify-content-center">
+
+      <a class="nav-link" href="#/settings/">Settings</a>
+
+      <a class="nav-link" href="#/settings/docs/">Docs</a>
+
+    </nav>
+  </div>
+</footer> -->
